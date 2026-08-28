@@ -191,7 +191,7 @@ function initScrollHeader() {
 }
 
 /* =====================================================
-   CHATBOT ASISTENTE DE JUGOS - ELBIA
+   CHATBOT ASISTENTE DE JUGOS - ELBIA (versión Vercel)
    ===================================================== */
 let conversationHistory = [];
 
@@ -205,34 +205,36 @@ function initChatbot() {
 
   if (!chatToggle || !chatContainer) return;
 
-  chatToggle.addEventListener("click", function(e) {
+  chatToggle.addEventListener("click", function (e) {
     e.preventDefault();
     chatContainer.classList.toggle("chat-hidden");
 
     if (!chatContainer.classList.contains("chat-hidden")) {
       if (chatMessages && chatMessages.children.length === 0) {
-        addMessage("bot", "¡Hola! 👋 Soy el Asistente de Jugos de Elbia. ¿Qué te apetece hoy?");
+        addMessage("bot", "¡Hola! 👋 Soy el Asistente de Jugos de Elbia. ¿Qué te apetece hoy? ¿Algo energizante, dulce, digestivo o un sándwich?");
       }
-      setTimeout(() => { if (chatInput) chatInput.focus(); }, 100);
+      setTimeout(() => {
+        if (chatInput) chatInput.focus();
+      }, 150);
     }
   });
 
   if (chatClose) {
-    chatClose.addEventListener("click", function(e) {
+    chatClose.addEventListener("click", function (e) {
       e.preventDefault();
       chatContainer.classList.add("chat-hidden");
     });
   }
 
   if (chatSend) {
-    chatSend.addEventListener("click", function(e) {
+    chatSend.addEventListener("click", function (e) {
       e.preventDefault();
       sendMessage();
     });
   }
 
   if (chatInput) {
-    chatInput.addEventListener("keypress", function(e) {
+    chatInput.addEventListener("keypress", function (e) {
       if (e.key === "Enter") {
         e.preventDefault();
         sendMessage();
@@ -254,18 +256,36 @@ async function sendMessage() {
   const loadingId = addMessage("bot", "Pensando...", true);
 
   try {
-    conversationHistory.push({ role: "user", parts: [{ text: text }] });
+    conversationHistory.push({
+      role: "user",
+      parts: [{ text: text }]
+    });
+
     const response = await fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ contents: conversationHistory })
+      body: JSON.stringify({
+        contents: conversationHistory
+      })
     });
-    const data = await response.json();
-    if (!response.ok) { throw new Error(data.error || `Error ${response.status}`); }
-    const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text;
-    if (!botReply) { throw new Error("La IA no devolvió respuesta"); }
 
-    conversationHistory.push({ role: "model", parts: [{ text: botReply }] });
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || `Error ${response.status}`);
+    }
+
+    const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+    if (!botReply) {
+      throw new Error("La IA no devolvió respuesta");
+    }
+
+    conversationHistory.push({
+      role: "model",
+      parts: [{ text: botReply }]
+    });
+
     const loadingElem = document.getElementById(loadingId);
     if (loadingElem) loadingElem.remove();
     addMessage("bot", botReply);
@@ -284,6 +304,7 @@ async function sendMessage() {
 function addMessage(role, text, isLoading = false) {
   const chatMessages = document.getElementById("chat-messages");
   if (!chatMessages) return "";
+
   const div = document.createElement("div");
   const id = "msg-" + Date.now() + Math.random().toString(36).slice(2);
   div.id = id;
@@ -294,8 +315,8 @@ function addMessage(role, text, isLoading = false) {
   return id;
 }
 
-// INICIO ROBUSTO (Protegido contra errores)
-document.addEventListener('DOMContentLoaded', () => {
-    try { initApp(); } catch(e) { console.error("Error en app:", e); }
-    try { initChatbot(); } catch(e) { console.error("Error en bot:", e); }
+// Inicio seguro
+document.addEventListener("DOMContentLoaded", () => {
+  try { initApp(); } catch (e) { console.error("Error en app:", e); }
+  try { initChatbot(); } catch (e) { console.error("Error en bot:", e); }
 });
