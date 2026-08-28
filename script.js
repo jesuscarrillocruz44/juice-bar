@@ -2,121 +2,24 @@
    JUGUERÍA ELBIA - INTERACTIVIDAD & SISTEMA DE PEDIDOS WHATSAPP
    ========================================================================== */
 
-// 1. CONFIGURACIÓN DEL NÚMERO DE WHATSAPP (Reemplaza con tu número real)
 const NUMERO_WHATSAPP = "51900000000"; 
 
-// 2. BASE DE DATOS LOCAL DE PRODUCTOS CON IMÁGENES ESTABLES
 const productos = [
-    // --- JUGOS NATURALES ---
-    {
-        id: 1,
-        nombre: "Jugo de Papaya",
-        descripcion: "Jugo natural recién licuado, nutritivo y digestivo.",
-        precio: 8.00,
-        categoria: "jugos",
-        imagen: "https://images.pexels.com/photos/1337825/pexels-photo-1337825.jpeg?auto=compress&cs=tinysrgb&w=500",
-        destacado: true
-    },
-    {
-        id: 2,
-        nombre: "Jugo de Fresa",
-        descripcion: "Fresas seleccionadas al instante con un toque natural.",
-        precio: 9.00,
-        categoria: "jugos",
-        imagen: "https://images.pexels.com/photos/775032/pexels-photo-775032.jpeg?auto=compress&cs=tinysrgb&w=500",
-        destacado: false
-    },
-    {
-        id: 3,
-        nombre: "Jugo de Mango",
-        descripcion: "Intenso sabor tropical, cremoso y lleno de energía.",
-        precio: 9.50,
-        categoria: "jugos",
-        imagen: "https://images.pexels.com/photos/2294477/pexels-photo-2294477.jpeg?auto=compress&cs=tinysrgb&w=500",
-        destacado: true
-    },
-    {
-        id: 4,
-        nombre: "Jugo Surtido Elbia",
-        descripcion: "Mezcla tradicional de papaya, piña, plátano y manzana.",
-        precio: 10.00,
-        categoria: "jugos",
-        imagen: "https://images.pexels.com/photos/1233319/pexels-photo-1233319.jpeg?auto=compress&cs=tinysrgb&w=500",
-        destacado: true
-    },
-    {
-        id: 5,
-        nombre: "Jugo Especial de la Casa",
-        descripcion: "Frutas surtidas + algarrobina + huevo + miel + leche.",
-        precio: 13.00,
-        categoria: "jugos",
-        imagen: "https://images.pexels.com/photos/8004565/pexels-photo-8004565.jpeg?auto=compress&cs=tinysrgb&w=500",
-        destacado: true
-    },
-
-    // --- SÁNDWICHES ---
-    {
-        id: 6,
-        nombre: "Sándwich de Pollo Deshilachado",
-        descripcion: "Pechuga deshilachada con mayonesa artesanal de la casa.",
-        precio: 7.50,
-        categoria: "sandwiches",
-        imagen: "https://images.pexels.com/photos/1600711/pexels-photo-1600711.jpeg?auto=compress&cs=tinysrgb&w=500",
-        destacado: false
-    },
-    {
-        id: 7,
-        nombre: "Sándwich de Pollo con Palta",
-        descripcion: "Pollo artesanal acompañado de láminas de palta fresca.",
-        precio: 9.00,
-        categoria: "sandwiches",
-        imagen: "https://images.pexels.com/photos/1647163/pexels-photo-1647163.jpeg?auto=compress&cs=tinysrgb&w=500",
-        destacado: true
-    },
-    {
-        id: 8,
-        nombre: "Sándwich Mixto (Jamón y Queso)",
-        descripcion: "Queso derretido y jamón de primera en pan caliente tostado.",
-        precio: 7.00,
-        categoria: "sandwiches",
-        imagen: "https://images.pexels.com/photos/410648/pexels-photo-410648.jpeg?auto=compress&cs=tinysrgb&w=500",
-        destacado: false
-    },
-    {
-        id: 9,
-        nombre: "Sándwich Especial Elbia",
-        descripcion: "Pollo, huevo duro, tocino crocante, queso y palta.",
-        precio: 12.00,
-        categoria: "sandwiches",
-        imagen: "https://images.pexels.com/photos/1209029/pexels-photo-1209029.jpeg?auto=compress&cs=tinysrgb&w=500",
-        destacado: true
-    },
-
-    // --- EXTRAS Y COMPLEMENTOS ---
-    {
-        id: 10,
-        nombre: "Ensalada de Frutas Clásica",
-        descripcion: "Frutas variadas de estación con miel de abeja y algarrobina.",
-        precio: 11.00,
-        categoria: "extras",
-        imagen: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=500",
-        destacado: false
-    },
-    {
-        id: 11,
-        nombre: "Ensalada de Frutas con Yogurt & Cereal",
-        descripcion: "Mix de frutas, yogurt natural artesanal, granola y miel.",
-        precio: 13.50,
-        categoria: "extras",
-        imagen: "https://images.pexels.com/photos/128865/pexels-photo-128865.jpeg?auto=compress&cs=tinysrgb&w=500",
-        destacado: true
-    }
+    { id: 1, nombre: "Jugo de Papaya", descripcion: "Jugo natural recién licuado, nutritivo y digestivo.", precio: 8.00, categoria: "jugos", imagen: "https://images.pexels.com/photos/1337825/pexels-photo-1337825.jpeg?auto=compress&cs=tinysrgb&w=500", destacado: true },
+    { id: 2, nombre: "Jugo de Fresa", descripcion: "Fresas seleccionadas al instante con un toque natural.", precio: 9.00, categoria: "jugos", imagen: "https://images.pexels.com/photos/775032/pexels-photo-775032.jpeg?auto=compress&cs=tinysrgb&w=500", destacado: false },
+    { id: 3, nombre: "Jugo de Mango", descripcion: "Intenso sabor tropical, cremoso y lleno de energía.", precio: 9.50, categoria: "jugos", imagen: "https://images.pexels.com/photos/2294477/pexels-photo-2294477.jpeg?auto=compress&cs=tinysrgb&w=500", destacado: true },
+    { id: 4, nombre: "Jugo Surtido Elbia", descripcion: "Mezcla tradicional de papaya, piña, plátano y manzana.", precio: 10.00, categoria: "jugos", imagen: "https://images.pexels.com/photos/1233319/pexels-photo-1233319.jpeg?auto=compress&cs=tinysrgb&w=500", destacado: true },
+    { id: 5, nombre: "Jugo Especial de la Casa", descripcion: "Frutas surtidas + algarrobina + huevo + miel + leche.", precio: 13.00, categoria: "jugos", imagen: "https://images.pexels.com/photos/8004565/pexels-photo-8004565.jpeg?auto=compress&cs=tinysrgb&w=500", destacado: true },
+    { id: 6, nombre: "Sándwich de Pollo Deshilachado", descripcion: "Pechuga deshilachada con mayonesa artesanal de la casa.", precio: 7.50, categoria: "sandwiches", imagen: "https://images.pexels.com/photos/1600711/pexels-photo-1600711.jpeg?auto=compress&cs=tinysrgb&w=500", destacado: false },
+    { id: 7, nombre: "Sándwich de Pollo con Palta", descripcion: "Pollo artesanal acompañado de láminas de palta fresca.", precio: 9.00, categoria: "sandwiches", imagen: "https://images.pexels.com/photos/1647163/pexels-photo-1647163.jpeg?auto=compress&cs=tinysrgb&w=500", destacado: true },
+    { id: 8, nombre: "Sándwich Mixto (Jamón y Queso)", descripcion: "Queso derretido y jamón de primera en pan caliente tostado.", precio: 7.00, categoria: "sandwiches", imagen: "https://images.pexels.com/photos/410648/pexels-photo-410648.jpeg?auto=compress&cs=tinysrgb&w=500", destacado: false },
+    { id: 9, nombre: "Sándwich Especial Elbia", descripcion: "Pollo, huevo duro, tocino crocante, queso y palta.", precio: 12.00, categoria: "sandwiches", imagen: "https://images.pexels.com/photos/1209029/pexels-photo-1209029.jpeg?auto=compress&cs=tinysrgb&w=500", destacado: true },
+    { id: 10, nombre: "Ensalada de Frutas Clásica", descripcion: "Frutas variadas de estación con miel de abeja y algarrobina.", precio: 11.00, categoria: "extras", imagen: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=500", destacado: false },
+    { id: 11, nombre: "Ensalada de Frutas con Yogurt & Cereal", descripcion: "Mix de frutas, yogurt natural artesanal, granola y miel.", precio: 13.50, categoria: "extras", imagen: "https://images.pexels.com/photos/128865/pexels-photo-128865.jpeg?auto=compress&cs=tinysrgb&w=500", destacado: true }
 ];
 
-// 3. ESTADO DEL CARRITO
 let carrito = [];
 
-// 4. FUNCION DE INICIALIZACIÓN FUERZA LA CARGA DE LA CARTA
 function initApp() {
     const productsGrid = document.getElementById('products-grid');
     if (productsGrid) {
@@ -126,14 +29,11 @@ function initApp() {
     initFilters();
     initCartModal();
     initScrollHeader();
-    initChatbot(); 
 }
 
-// Renderizar Productos en la Carta
 function renderProducts(items) {
     const productsGrid = document.getElementById('products-grid');
     if (!productsGrid) return;
-    
     productsGrid.innerHTML = '';
     
     items.forEach(product => {
@@ -149,9 +49,7 @@ function renderProducts(items) {
                 <p class="product-desc">${product.descripcion}</p>
                 <div class="product-footer">
                     <span class="product-price">S/ ${product.precio.toFixed(2)}</span>
-                    <button class="add-cart-btn" onclick="addToCart(${product.id})">
-                        <i class="fa-solid fa-plus"></i> Agregar
-                    </button>
+                    <button class="add-cart-btn" onclick="addToCart(${product.id})"><i class="fa-solid fa-plus"></i> Agregar</button>
                 </div>
             </div>
         `;
@@ -159,34 +57,23 @@ function renderProducts(items) {
     });
 }
 
-// Agregar al Carrito
 function addToCart(productId) {
     const product = productos.find(p => p.id === productId);
     const itemInCart = carrito.find(item => item.id === productId);
-
-    if (itemInCart) {
-        itemInCart.cantidad++;
-    } else {
-        carrito.push({ ...product, cantidad: 1 });
-    }
-
+    if (itemInCart) { itemInCart.cantidad++; } else { carrito.push({ ...product, cantidad: 1 }); }
     updateCartUI();
     openCartModal();
 }
 
-// Actualizar Cantidad
 function updateCartQuantity(productId, change) {
     const itemInCart = carrito.find(item => item.id === productId);
     if (itemInCart) {
         itemInCart.cantidad += change;
-        if (itemInCart.cantidad <= 0) {
-            carrito = carrito.filter(item => item.id !== productId);
-        }
+        if (itemInCart.cantidad <= 0) { carrito = carrito.filter(item => item.id !== productId); }
     }
     updateCartUI();
 }
 
-// Actualizar Interfaz del Carrito
 function updateCartUI() {
     const cartCount = document.getElementById('cart-count');
     const cartItemsContainer = document.getElementById('cart-items-container');
@@ -194,7 +81,6 @@ function updateCartUI() {
 
     const totalCount = carrito.reduce((acc, item) => acc + item.cantidad, 0);
     if (cartCount) cartCount.textContent = totalCount;
-
     if (!cartItemsContainer) return;
     cartItemsContainer.innerHTML = '';
 
@@ -205,11 +91,9 @@ function updateCartUI() {
     }
 
     let total = 0;
-
     carrito.forEach(item => {
         const subtotal = item.precio * item.cantidad;
         total += subtotal;
-
         const itemRow = document.createElement('div');
         itemRow.className = 'cart-item';
         itemRow.innerHTML = `
@@ -225,35 +109,28 @@ function updateCartUI() {
         `;
         cartItemsContainer.appendChild(itemRow);
     });
-
     if (cartTotalPrice) cartTotalPrice.textContent = `S/ ${total.toFixed(2)}`;
 }
 
-// Enviar Pedido por WhatsApp
 document.addEventListener('click', (e) => {
     if (e.target && e.target.id === 'send-whatsapp-order-btn') {
         if (carrito.length === 0) {
             alert('Por favor, agrega al menos un producto a tu pedido antes de continuar.');
             return;
         }
-
         let mensaje = "Hola, Juguería Elbia. Quiero realizar el siguiente pedido:\n\n";
         let total = 0;
-
         carrito.forEach(item => {
             const subtotal = item.precio * item.cantidad;
             total += subtotal;
             mensaje += `🥤 *${item.nombre}* x${item.cantidad} — S/ ${subtotal.toFixed(2)}\n`;
         });
-
         mensaje += `\n*Total a pagar: S/ ${total.toFixed(2)}*\n\n¿Podrían confirmarme mi pedido y tiempo estimado de entrega?`;
-
         const urlWhatsApp = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
         window.open(urlWhatsApp, '_blank');
     }
 });
 
-// Modal del Carrito
 function initCartModal() {
     const cartModal = document.getElementById('cart-modal');
     const cartToggleBtn = document.getElementById('cart-toggle-btn');
@@ -261,7 +138,6 @@ function initCartModal() {
 
     if (cartToggleBtn) cartToggleBtn.addEventListener('click', openCartModal);
     if (cartCloseBtn) cartCloseBtn.addEventListener('click', closeCartModal);
-    
     if (cartModal) {
         cartModal.addEventListener('click', (e) => {
             if (e.target === cartModal) closeCartModal();
@@ -279,37 +155,26 @@ function closeCartModal() {
     if (cartModal) cartModal.classList.remove('active');
 }
 
-// Menú Móvil
 function initMenuMobile() {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
 
     if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
+        hamburger.addEventListener('click', () => { navMenu.classList.toggle('active'); });
         document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
+            link.addEventListener('click', () => { navMenu.classList.remove('active'); });
         });
     }
 }
 
-// Filtros de Categorías
 function initFilters() {
     const filterBtns = document.querySelectorAll('.filter-btn');
-    
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-
             const category = btn.getAttribute('data-filter');
-            if (category === 'all') {
-                renderProducts(productos);
-            } else {
+            if (category === 'all') { renderProducts(productos); } else {
                 const filtered = productos.filter(p => p.categoria === category);
                 renderProducts(filtered);
             }
@@ -317,84 +182,62 @@ function initFilters() {
     });
 }
 
-// Scroll en el Header
 function initScrollHeader() {
     const navbar = document.getElementById('navbar');
     if (!navbar) return;
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+        if (window.scrollY > 50) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
     });
-}
-
-// Ejecutar al cargar el documento
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initApp);
-} else {
-    initApp();
 }
 
 /* =====================================================
    CHATBOT ASISTENTE DE JUGOS - ELBIA
    ===================================================== */
-
 let conversationHistory = [];
 
 function initChatbot() {
   const chatToggle = document.getElementById("chat-toggle");
   const chatContainer = document.getElementById("chat-container");
   const chatClose = document.getElementById("chat-close");
-  const chatMessages = document.getElementById("chat-messages");
   const chatInput = document.getElementById("chat-input");
   const chatSend = document.getElementById("chat-send");
+  const chatMessages = document.getElementById("chat-messages");
 
   if (!chatToggle || !chatContainer) return;
 
-  function alternarChat(e) {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
+  chatToggle.addEventListener("click", function(e) {
+    e.preventDefault();
     chatContainer.classList.toggle("chat-hidden");
 
     if (!chatContainer.classList.contains("chat-hidden")) {
-      setTimeout(() => {
-        if (chatInput) chatInput.focus();
-      }, 100);
-      
       if (chatMessages && chatMessages.children.length === 0) {
-        addMessage("bot", "¡Hola! 👋 Soy el Asistente de Jugos de Elbia. ¿Qué te apetece hoy? ¿Algo energizante, dulce, digestivo o un sándwich?");
+        addMessage("bot", "¡Hola! 👋 Soy el Asistente de Jugos de Elbia. ¿Qué te apetece hoy?");
       }
+      setTimeout(() => { if (chatInput) chatInput.focus(); }, 100);
     }
-  }
-
-  chatToggle.onclick = alternarChat;
+  });
 
   if (chatClose) {
-    chatClose.onclick = (e) => {
+    chatClose.addEventListener("click", function(e) {
       e.preventDefault();
-      e.stopPropagation();
       chatContainer.classList.add("chat-hidden");
-    };
+    });
   }
 
   if (chatSend) {
-    chatSend.onclick = (e) => {
+    chatSend.addEventListener("click", function(e) {
       e.preventDefault();
       sendMessage();
-    };
+    });
   }
 
   if (chatInput) {
-    chatInput.onkeypress = (e) => {
+    chatInput.addEventListener("keypress", function(e) {
       if (e.key === "Enter") {
         e.preventDefault();
         sendMessage();
       }
-    };
+    });
   }
 }
 
@@ -411,36 +254,18 @@ async function sendMessage() {
   const loadingId = addMessage("bot", "Pensando...", true);
 
   try {
-    conversationHistory.push({
-      role: "user",
-      parts: [{ text: text }]
-    });
-
+    conversationHistory.push({ role: "user", parts: [{ text: text }] });
     const response = await fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: conversationHistory
-      })
+      body: JSON.stringify({ contents: conversationHistory })
     });
-
     const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.error || `Error ${response.status}`);
-    }
-
+    if (!response.ok) { throw new Error(data.error || `Error ${response.status}`); }
     const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    if (!botReply) { throw new Error("La IA no devolvió respuesta"); }
 
-    if (!botReply) {
-      throw new Error("La IA no devolvió respuesta");
-    }
-
-    conversationHistory.push({
-      role: "model",
-      parts: [{ text: botReply }]
-    });
-
+    conversationHistory.push({ role: "model", parts: [{ text: botReply }] });
     const loadingElem = document.getElementById(loadingId);
     if (loadingElem) loadingElem.remove();
     addMessage("bot", botReply);
@@ -459,7 +284,6 @@ async function sendMessage() {
 function addMessage(role, text, isLoading = false) {
   const chatMessages = document.getElementById("chat-messages");
   if (!chatMessages) return "";
-  
   const div = document.createElement("div");
   const id = "msg-" + Date.now() + Math.random().toString(36).slice(2);
   div.id = id;
@@ -469,3 +293,9 @@ function addMessage(role, text, isLoading = false) {
   chatMessages.scrollTop = chatMessages.scrollHeight;
   return id;
 }
+
+// INICIO ROBUSTO (Protegido contra errores)
+document.addEventListener('DOMContentLoaded', () => {
+    try { initApp(); } catch(e) { console.error("Error en app:", e); }
+    try { initChatbot(); } catch(e) { console.error("Error en bot:", e); }
+});

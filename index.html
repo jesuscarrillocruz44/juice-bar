@@ -22,8 +22,8 @@
     <!-- FontAwesome Font Icons CDN para íconos modernos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Hoja de Estilos -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Hoja de Estilos (Con rompecaché) -->
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -96,7 +96,6 @@
             </div>
             <div class="hero-image-wrapper animate-slide-up">
                 <div class="hero-img-card">
-                    <!-- URL de imagen directa y confiable -->
                     <img src="https://images.pexels.com/photos/1337825/pexels-photo-1337825.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Jugo de fruta fresco Elbia" class="hero-img">
                     <div class="floating-badge badge-1">
                         <i class="fa-solid fa-star"></i>
@@ -111,6 +110,7 @@
                     </div>
                 </div>
             </div>
+        </div> <!-- ESTE ES EL DIV QUE FALTABA -->
     </section>
 
     <!-- ==========================================
@@ -194,7 +194,6 @@
                 <div class="title-line"></div>
             </div>
 
-            <!-- Filtros de categoría -->
             <div class="category-filters">
                 <button class="filter-btn active" data-filter="all">Todos</button>
                 <button class="filter-btn" data-filter="jugos">🥤 Jugos Naturales</button>
@@ -202,7 +201,6 @@
                 <button class="filter-btn" data-filter="extras">🍓 Extras & Postres</button>
             </div>
 
-            <!-- Grid de Productos -->
             <div class="products-grid" id="products-grid">
                 <!-- Se renderiza dinámicamente desde script.js -->
             </div>
@@ -223,39 +221,27 @@
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=600&q=80" alt="Jugo de Naranja Natural">
-                    <div class="gallery-overlay">
-                        <span>Jugo Cítrico Fresco</span>
-                    </div>
+                    <div class="gallery-overlay"><span>Jugo Cítrico Fresco</span></div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80" alt="Sándwich Artesanal">
-                    <div class="gallery-overlay">
-                        <span>Sándwich Especial</span>
-                    </div>
+                    <div class="gallery-overlay"><span>Sándwich Especial</span></div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1502741126161-b048400d085d?auto=format&fit=crop&w=600&q=80" alt="Smoothie de Fresa">
-                    <div class="gallery-overlay">
-                        <span>Smoothies & Batidos</span>
-                    </div>
+                    <div class="gallery-overlay"><span>Smoothies & Batidos</span></div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=600&q=80" alt="Ensalada de Frutas">
-                    <div class="gallery-overlay">
-                        <span>Ensaladas con Yogurt</span>
-                    </div>
+                    <div class="gallery-overlay"><span>Ensaladas con Yogurt</span></div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1610970881699-44a5587cabec?auto=format&fit=crop&w=600&q=80" alt="Frutas Frescas">
-                    <div class="gallery-overlay">
-                        <span>Insumos 100% Seleccionados</span>
-                    </div>
+                    <div class="gallery-overlay"><span>Insumos 100% Seleccionados</span></div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80" alt="Preparación de Jugos">
-                    <div class="gallery-overlay">
-                        <span>Preparados al Momento</span>
-                    </div>
+                    <div class="gallery-overlay"><span>Preparados al Momento</span></div>
                 </div>
             </div>
         </div>
@@ -272,7 +258,6 @@
                 <div class="title-line"></div>
             </div>
             <div class="testimonials-grid">
-                <!-- Testimonio 1 (Ejemplo editable) -->
                 <div class="testimonial-card">
                     <div class="stars">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -283,7 +268,6 @@
                         <span>Cliente Frecuente</span>
                     </div>
                 </div>
-                <!-- Testimonio 2 (Ejemplo editable) -->
                 <div class="testimonial-card">
                     <div class="stars">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -294,7 +278,6 @@
                         <span>Cliente Delivery</span>
                     </div>
                 </div>
-                <!-- Testimonio 3 (Ejemplo editable) -->
                 <div class="testimonial-card">
                     <div class="stars">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -333,8 +316,7 @@
                         <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
                         <div>
                             <h3>Horario de Atención</h3>
-                            <p>Lunes a Sábado: 6:00 am - 18:00 pm<br>Domingos: 
-                                8:00 am - 4:00 pm</p>
+                            <p>Lunes a Sábado: 6:00 am - 18:00 pm<br>Domingos: 8:00 am - 4:00 pm</p>
                         </div>
                     </div>
                     <div class="info-card">
@@ -350,7 +332,6 @@
                 </div>
 
                 <div class="map-container">
-                    <!-- Mapa de Google Maps (Iframe sustituible) -->
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3904.789328807641!2d-77.14485811265092!3d-11.850015115706743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105d517bc1fdd71%3A0x3fa003d3bc524bdf!2sMercado%20Oasis!5e0!3m2!1sen!2spe!4v1787592369620!5m2!1sen!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" 
                         width="100%" 
@@ -436,7 +417,8 @@
         <i class="fa-brands fa-whatsapp"></i>
         <span class="tooltip-text">¡Pide aquí!</span>
     </a>
-<!-- ===== CHATBOT DE JUGOS ===== -->
+
+    <!-- ===== CHATBOT DE JUGOS ===== -->
     <div id="chat-widget">
       <button id="chat-toggle" aria-label="Abrir chat">
         🧃 Asistente de Jugos
@@ -454,7 +436,8 @@
         </div>
       </div>
     </div>
-    <!-- Archivo JS -->
-    <script src="script.js"></script>
+
+    <!-- Archivo JS (Con rompecaché para forzar actualización) -->
+    <script src="script.js?v=3"></script>
 </body>
 </html>
