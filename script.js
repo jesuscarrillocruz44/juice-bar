@@ -126,6 +126,7 @@ function initApp() {
     initFilters();
     initCartModal();
     initScrollHeader();
+    initChatbot(); // ← Agrega esta llamada aquí
 }
 
 // Renderizar Productos en la Carta
@@ -335,36 +336,61 @@ if (document.readyState === 'loading') {
 } else {
     initApp();
 }
-//* =====================================================
+/* =====================================================
    CHATBOT ASISTENTE DE JUGOS - ELBIA
    ===================================================== */
 
 let conversationHistory = [];
 
-const chatToggle = document.getElementById("chat-toggle");
-const chatContainer = document.getElementById("chat-container");
-const chatClose = document.getElementById("chat-close");
-const chatMessages = document.getElementById("chat-messages");
-const chatInput = document.getElementById("chat-input");
-const chatSend = document.getElementById("chat-send");
+function initChatbot() {
+  const chatToggle = document.getElementById("chat-toggle");
+  const chatContainer = document.getElementById("chat-container");
+  const chatClose = document.getElementById("chat-close");
+  const chatMessages = document.getElementById("chat-messages");
+  const chatInput = document.getElementById("chat-input");
+  const chatSend = document.getElementById("chat-send");
 
-if (chatToggle && chatContainer) {
-  chatToggle.addEventListener("click", () => {
+  if (!chatToggle || !chatContainer) return;
+
+  // Evento de apertura/cierre del botón principal
+  chatToggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     chatContainer.classList.toggle("chat-hidden");
+
     if (!chatContainer.classList.contains("chat-hidden")) {
-      chatInput.focus();
-      if (chatMessages.children.length === 0) {
+      if (chatInput) chatInput.focus();
+      if (chatMessages && chatMessages.children.length === 0) {
         addMessage("bot", "¡Hola! 👋 Soy el Asistente de Jugos de Elbia. ¿Qué te apetece hoy? ¿Algo energizante, dulce, digestivo o un sándwich?");
       }
     }
   });
 
-  chatClose.addEventListener("click", () => {
-    chatContainer.classList.add("chat-hidden");
-  });
+  // Evento del botón de cerrar (X)
+  if (chatClose) {
+    chatClose.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      chatContainer.classList.add("chat-hidden");
+    });
+  }
+
+  // Evento de envío de mensaje por botón
+  if (chatSend) {
+    chatSend.addEventListener("click", sendMessage);
+  }
+
+  // Evento de envío de mensaje con Enter
+  if (chatInput) {
+    chatInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") sendMessage();
+    });
+  }
 }
 
 async function sendMessage() {
+  const chatInput = document.getElementById("chat-input");
+  const chatSend = document.getElementById("chat-send");
   const text = chatInput.value.trim();
   if (!text) return;
 
@@ -372,7 +398,7 @@ async function sendMessage() {
   chatInput.value = "";
   chatSend.disabled = true;
 
-  const loadingId = addMessage("bot", "Escribiendo...", true);
+  const loadingId = addMessage("bot", "Pensando...", true);
 
   try {
     conversationHistory.push({
@@ -405,11 +431,13 @@ async function sendMessage() {
       parts: [{ text: botReply }]
     });
 
-    document.getElementById(loadingId).remove();
+    const loadingElem = document.getElementById(loadingId);
+    if (loadingElem) loadingElem.remove();
     addMessage("bot", botReply);
 
   } catch (error) {
-    document.getElementById(loadingId)?.remove();
+    const loadingElem = document.getElementById(loadingId);
+    if (loadingElem) loadingElem.remove();
     console.error("Error en chatbot:", error);
     addMessage("bot", `Error: ${error.message}`);
   } finally {
@@ -419,6 +447,9 @@ async function sendMessage() {
 }
 
 function addMessage(role, text, isLoading = false) {
+  const chatMessages = document.getElementById("chat-messages");
+  if (!chatMessages) return "";
+  
   const div = document.createElement("div");
   const id = "msg-" + Date.now() + Math.random().toString(36).slice(2);
   div.id = id;
@@ -427,11 +458,4 @@ function addMessage(role, text, isLoading = false) {
   chatMessages.appendChild(div);
   chatMessages.scrollTop = chatMessages.scrollHeight;
   return id;
-}
-
-if (chatSend) chatSend.addEventListener("click", sendMessage);
-if (chatInput) {
-  chatInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") sendMessage();
-  });
 }
