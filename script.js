@@ -397,28 +397,6 @@ function initChatbot() {
   }
 }
 
-  // Evento del botón de cerrar (X)
-  if (chatClose) {
-    chatClose.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      chatContainer.classList.add("chat-hidden");
-    });
-  }
-
-  // Evento de envío de mensaje por botón
-  if (chatSend) {
-    chatSend.addEventListener("click", sendMessage);
-  }
-
-  // Evento de envío de mensaje con Enter
-  if (chatInput) {
-    chatInput.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") sendMessage();
-    });
-  }
-
-
 async function sendMessage() {
   const chatInput = document.getElementById("chat-input");
   const chatSend = document.getElementById("chat-send");
