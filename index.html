@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Disfruta los mejores jugos naturales, sándwiches y productos frescos en Juguería Elbia. Consulta nuestra carta y realiza tu pedido fácil por WhatsApp.">
+    <meta name="keywords" content="Juguería Elbia, jugos naturales, sándwiches, ensalada de frutas, delivery jugos, alimento saludable">
+    <meta name="author" content="Juguería Elbia">
+    
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="Juguería Elbia | Jugos Naturales y Sándwiches">
+    <meta property="og:description" content="Sabor natural que alegra tu día. Realiza tu pedido directo a nuestro WhatsApp.">
+    <meta property="og:type" content="website">
+
+    <title>Juguería Elbia | Jugos Naturales y Sándwiches</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Font Icons CDN para íconos modernos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Hoja de Estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ==========================================
+         ENCABEZADO / NAVBAR
+    =========================================== -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-container">
+            <a href="#inicio" class="logo">
+                <span class="logo-sub">JUGUERÍA</span>
+                <span class="logo-main">ELBIA</span>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                    <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                    <li><a href="#por-que" class="nav-link">¿Por qué elegirnos?</a></li>
+                    <li><a href="#carta" class="nav-link">Nuestra Carta</a></li>
+                    <li><a href="#galeria" class="nav-link">Galería</a></li>
+                    <li><a href="#ubicacion" class="nav-link">Visítanos</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="cart-btn" id="cart-toggle-btn" aria-label="Ver pedido">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <a href="https://wa.me/51900000000?text=Hola,%20Juguer%C3%ADa%20Elbia.%20Quiero%20hacer%20un%20pedido." target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-whatsapp-btn">
+                    <i class="fa-brands fa-whatsapp"></i> PEDIR POR WHATSAPP
+                </a>
+                <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         HERO PRINCIPAL
+    =========================================== -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        <div class="container hero-container">
+            <div class="hero-content animate-fade-in">
+                <span class="hero-badge"><i class="fa-solid fa-leaf"></i> 100% Natural & Fresco</span>
+                <h1 class="hero-title">Sabor natural que <span>alegra tu día</span></h1>
+                <p class="hero-description">
+                    Jugos naturales recién exprimidos, sándwiches artesanales deliciosos y opciones saludables preparadas al instante con la mayor calidad para ti.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#carta" class="btn btn-primary btn-large">
+                        <i class="fa-solid fa-utensils"></i> VER NUESTRA CARTA
+                    </a>
+                    <a href="https://wa.me/51900000000?text=Hola,%20Juguer%C3%ADa%20Elbia.%20Quiero%20hacer%20un%20pedido." target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-large">
+                        <i class="fa-brands fa-whatsapp"></i> PEDIR POR WHATSAPP
+                    </a>
+                </div>
+                <div class="hero-features">
+                    <div class="h-feat"><i class="fa-solid fa-check"></i> Frutas de estación</div>
+                    <div class="h-feat"><i class="fa-solid fa-check"></i> Preparación al momento</div>
+                    <div class="h-feat"><i class="fa-solid fa-check"></i> Envío rápido</div>
+                </div>
+            </div>
+            <div class="hero-image-wrapper animate-slide-up">
+                <div class="hero-img-card">
+                    <!-- URL de imagen directa y confiable -->
+                    <img src="https://images.pexels.com/photos/1337825/pexels-photo-1337825.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Jugo de fruta fresco Elbia" class="hero-img">
+                    <div class="floating-badge badge-1">
+                        <i class="fa-solid fa-star"></i>
+                        <div>
+                            <strong>4.9 / 5.0</strong>
+                            <span>Calidad Premium</span>
+                        </div>
+                    </div>
+                    <div class="floating-badge badge-2">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>¡100% Fruta Natural!</span>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- ==========================================
+         SECCIÓN "¿POR QUÉ ELEGIRNOS?"
+    =========================================== -->
+    <section class="features-section section-padding" id="por-que">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="sub-title">NUESTROS VALORES</span>
+                <h2 class="section-title">¿Por qué elegir Juguería Elbia?</h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🍊</div>
+                    <h3>Ingredientes frescos</h3>
+                    <p>Seleccionamos día a día los mejores insumos de la estación para ofrecerte un sabor auténtico e inigualable.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🥤</div>
+                    <h3>Jugos 100% naturales</h3>
+                    <p>Preparados al instante para conservar todas sus vitaminas, nutrientes y la máxima frescura natural.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">❤️</div>
+                    <h3>Hecho con cariño</h3>
+                    <p>Cada vaso y cada sándwich es elaborado respetando la tradición artesanal y cuidando cada detalle.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Atención rápida</h3>
+                    <p>Realiza tu pedido fácilmente desde WhatsApp y disfrútalo en el local o en la comodidad de tu hogar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECCIÓN NOSOTROS
+    =========================================== -->
+    <section class="about-section section-padding" id="nosotros">
+        <div class="container about-container">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?auto=format&fit=crop&w=800&q=80" alt="Preparación de jugos artesanales">
+                <div class="about-experience-badge">
+                    <span>Sabor & Tradición</span>
+                </div>
+            </div>
+            <div class="about-content">
+                <span class="sub-title">CONOCE NUESTRA HISTORIA</span>
+                <h2 class="section-title">Somos Juguería Elbia</h2>
+                <p>
+                    En <strong>Juguería Elbia</strong> creemos que disfrutar de algo delicioso también debe ser una experiencia fresca, saludable y alegre. Nacimos con la pasión de ofrecer jugos y alimentos preparados con la fruta más selecta del mercado.
+                </p>
+                <p>
+                    Nos esmeramos en brindar una atención cálida e impecable, asegurando que cada cliente reciba una explosión de sabor en cada visita.
+                </p>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <i class="fa-solid fa-certificate"></i>
+                        <span>Estándares de Higiene Garantizados</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fa-solid fa-lemon"></i>
+                        <span>Sin Preservantes ni Saborizantes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CARTA DIGITAL
+    =========================================== -->
+    <section class="menu-section section-padding" id="carta">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="sub-title">DISFRUTA NUESTRO MENÚ</span>
+                <h2 class="section-title">Nuestra Carta Digital</h2>
+                <p class="section-desc">Selecciona tus favoritos y añádelos a tu pedido directo para WhatsApp.</p>
+                <div class="title-line"></div>
+            </div>
+
+            <!-- Filtros de categoría -->
+            <div class="category-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="jugos">🥤 Jugos Naturales</button>
+                <button class="filter-btn" data-filter="sandwiches">🥪 Sándwiches</button>
+                <button class="filter-btn" data-filter="extras">🍓 Extras & Postres</button>
+            </div>
+
+            <!-- Grid de Productos -->
+            <div class="products-grid" id="products-grid">
+                <!-- Se renderiza dinámicamente desde script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         GALERÍA VISUAL
+    =========================================== -->
+    <section class="gallery-section section-padding" id="galeria">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="sub-title">GALERÍA FOTOGRÁFICA</span>
+                <h2 class="section-title">La experiencia Elbia</h2>
+                <div class="title-line"></div>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=600&q=80" alt="Jugo de Naranja Natural">
+                    <div class="gallery-overlay">
+                        <span>Jugo Cítrico Fresco</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80" alt="Sándwich Artesanal">
+                    <div class="gallery-overlay">
+                        <span>Sándwich Especial</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1502741126161-b048400d085d?auto=format&fit=crop&w=600&q=80" alt="Smoothie de Fresa">
+                    <div class="gallery-overlay">
+                        <span>Smoothies & Batidos</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=600&q=80" alt="Ensalada de Frutas">
+                    <div class="gallery-overlay">
+                        <span>Ensaladas con Yogurt</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1610970881699-44a5587cabec?auto=format&fit=crop&w=600&q=80" alt="Frutas Frescas">
+                    <div class="gallery-overlay">
+                        <span>Insumos 100% Seleccionados</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80" alt="Preparación de Jugos">
+                    <div class="gallery-overlay">
+                        <span>Preparados al Momento</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         TESTIMONIOS
+    =========================================== -->
+    <section class="testimonials-section section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="sub-title">LO QUE DICEN NUESTROS CLIENTES</span>
+                <h2 class="section-title">Opiniones que nos motivan</h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="testimonials-grid">
+                <!-- Testimonio 1 (Ejemplo editable) -->
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="comment">"Los jugos son super frescos y la atención es excelente. El sándwich de pollo con palta es simplemente increíble. ¡Mi lugar favorito todas las mañanas!"</p>
+                    <div class="client-info">
+                        <strong>María Fernández</strong>
+                        <span>Cliente Frecuente</span>
+                    </div>
+                </div>
+                <!-- Testimonio 2 (Ejemplo editable) -->
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="comment">"Hice mi pedido por WhatsApp y llegó super rápido y bien empacado. El jugo especial de la casa tiene un sabor natural único. 100% recomendado."</p>
+                    <div class="client-info">
+                        <strong>Carlos Mendoza</strong>
+                        <span>Cliente Delivery</span>
+                    </div>
+                </div>
+                <!-- Testimonio 3 (Ejemplo editable) -->
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="comment">"Excelente opción para un desayuno o merienda saludable. Las ensaladas de fruta vienen súper bien servidas. El sitio transmite limpieza y calidad."</p>
+                    <div class="client-info">
+                        <strong>Andrea Torres</strong>
+                        <span>Cliente Frecuente</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         UBICACIÓN Y CONTACTO
+    =========================================== -->
+    <section class="location-section section-padding" id="ubicacion">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="sub-title">VISÍTANOS</span>
+                <h2 class="section-title">¿Dónde estamos?</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="location-wrapper">
+                <div class="location-info">
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <h3>Dirección</h3>
+                            <p>Av. Principal 123, Urb. Los Rosales, Lima, Perú</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div>
+                            <h3>Horario de Atención</h3>
+                            <p>Lunes a Sábado: 6:00 am - 18:00 pm<br>Domingos: 
+                                8:00 am - 4:00 pm</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div>
+                            <h3>WhatsApp de Pedidos</h3>
+                            <p>+51 900 000 000</p>
+                        </div>
+                    </div>
+                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">
+                        <i class="fa-solid fa-diamond-turn-right"></i> CÓMO LLEGAR
+                    </a>
+                </div>
+
+                <div class="map-container">
+                    <!-- Mapa de Google Maps (Iframe sustituible) -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3904.789328807641!2d-77.14485811265092!3d-11.850015115706743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105d517bc1fdd71%3A0x3fa003d3bc524bdf!2sMercado%20Oasis!5e0!3m2!1sen!2spe!4v1787592369620!5m2!1sen!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Ubicación de Juguería Elbia">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#inicio" class="logo text-white">
+                    <span class="logo-sub">JUGUERÍA</span>
+                    <span class="logo-main text-white">ELBIA</span>
+                </a>
+                <p>Frescura, sabor natural y calidad en cada preparación. Alegramos tu día con lo mejor de las frutas.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#carta">Nuestra Carta</a></li>
+                    <li><a href="#ubicacion">Ubicación</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container text-center">
+                <p>&copy; 2026 Juguería Elbia. Todos los derechos reservados. Sabor & Frescura Natural.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         MODAL DEL CARRITO DE COMPRAS
+    =========================================== -->
+    <div class="cart-modal-overlay" id="cart-modal">
+        <div class="cart-modal">
+            <div class="cart-modal-header">
+                <h3><i class="fa-solid fa-basket-shopping"></i> Tu Pedido</h3>
+                <button class="cart-close-btn" id="cart-close-btn">&times;</button>
+            </div>
+            <div class="cart-modal-body" id="cart-items-container">
+                <!-- Se llena dinámicamente -->
+            </div>
+            <div class="cart-modal-footer">
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Total estimado:</span>
+                        <strong id="cart-total-price">S/ 0.00</strong>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-block btn-whatsapp-order" id="send-whatsapp-order-btn">
+                    <i class="fa-brands fa-whatsapp"></i> REALIZAR PEDIDO POR WHATSAPP
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         BOTÓN FLOTANTE DE WHATSAPP
+    =========================================== -->
+    <a href="https://wa.me/51900000000?text=Hola,%20Juguer%C3%ADa%20Elbia.%20Quiero%20hacer%20un%20pedido." target="_blank" rel="noopener noreferrer" class="whatsapp-float-btn" aria-label="Contactar por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="tooltip-text">¡Pide aquí!</span>
+    </a>
+<!-- ===== CHATBOT DE JUGOS ===== -->
+    <div id="chat-widget">
+      <button id="chat-toggle" aria-label="Abrir chat">
+        🧃 Asistente de Jugos
+      </button>
+
+      <div id="chat-container" class="chat-hidden">
+        <div id="chat-header">
+          <span>🧃 Asistente de Jugos</span>
+          <button id="chat-close">×</button>
+        </div>
+        <div id="chat-messages"></div>
+        <div id="chat-input-area">
+          <input type="text" id="chat-input" placeholder="¿Qué jugo te apetece hoy?" autocomplete="off">
+          <button id="chat-send">Enviar</button>
+        </div>
+      </div>
+    </div>
+    <!-- Archivo JS -->
+    <script src="script.js"></script>
+</body>
+</html>
