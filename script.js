@@ -126,7 +126,7 @@ function initApp() {
     initFilters();
     initCartModal();
     initScrollHeader();
-    initChatbot(); // ← Agrega esta llamada aquí
+    initChatbot(); 
 }
 
 // Renderizar Productos en la Carta
@@ -336,6 +336,7 @@ if (document.readyState === 'loading') {
 } else {
     initApp();
 }
+
 /* =====================================================
    CHATBOT ASISTENTE DE JUGOS - ELBIA
    ===================================================== */
@@ -451,7 +452,7 @@ async function sendMessage() {
     addMessage("bot", `Error: ${error.message}`);
   } finally {
     chatSend.disabled = false;
-    chatInput.focus();
+    if (chatInput) chatInput.focus();
   }
 }
 
