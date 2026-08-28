@@ -335,28 +335,9 @@ if (document.readyState === 'loading') {
 } else {
     initApp();
 }
-/* =====================================================
-   CHATBOT ASISTENTE DE JUGOS - ELBIA (versión mejorada)
+//* =====================================================
+   CHATBOT ASISTENTE DE JUGOS - ELBIA
    ===================================================== */
-
-const GEMINI_API_KEY = ""; // ← pega tu key aquí
-const MODEL = "gemini-3.6-flash";
-
-const SYSTEM_INSTRUCTION = `Eres el asistente oficial de Juguería Elbia, una juguería peruana de jugos naturales, sándwiches y ensaladas de frutas.
-
-Responde SIEMPRE en español, de forma amable, cercana y entusiasta (máximo 3-8 oraciones).
-
-Productos reales de la carta:
-- Jugos: Papaya (S/8), Fresa (S/9), Mango (S/9.50), Surtido Elbia (S/10), Especial de la Casa (S/13)
-- Sándwiches: Pollo deshilachado (S/7.50), Pollo con palta (S/9), Mixto jamón y queso (S/7), Especial Elbia (S/12)
-- Extras: Ensalada de frutas clásica (S/11), Ensalada con yogurt y cereal (S/13.50)
-
-Reglas:
-1. Recomienda según lo que el cliente pide (energía, digestivo, dulce, etc.).
-2. Menciona beneficios de forma natural.
-3. Si tiene alergias o restricciones, respétalas.
-4. Si pregunta por pedido, dile que puede usar el carrito de la página o el botón de WhatsApp.
-5. Nunca inventes precios ni digas que tú tomas el pedido.`;
 
 let conversationHistory = [];
 
@@ -391,7 +372,7 @@ async function sendMessage() {
   chatInput.value = "";
   chatSend.disabled = true;
 
-  const loadingId = addMessage("bot", "Pensando...", true);
+  const loadingId = addMessage("bot", "Escribiendo...", true);
 
   try {
     conversationHistory.push({
@@ -399,29 +380,18 @@ async function sendMessage() {
       parts: [{ text: text }]
     });
 
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${GEMINI_API_KEY}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          systemInstruction: {
-            parts: [{ text: SYSTEM_INSTRUCTION }]
-          },
-          contents: conversationHistory,
-          generationConfig: {
-            temperature: 0.7,
-            maxOutputTokens: 400
-          }
-        })
-      }
-    );
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: conversationHistory
+      })
+    });
 
     const data = await response.json();
 
     if (!response.ok) {
-      console.error("Error de Gemini:", data);
-      throw new Error(data.error?.message || `Error ${response.status}`);
+      throw new Error(data.error || `Error ${response.status}`);
     }
 
     const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text;
@@ -440,7 +410,7 @@ async function sendMessage() {
 
   } catch (error) {
     document.getElementById(loadingId)?.remove();
-    console.error("Error completo:", error);
+    console.error("Error en chatbot:", error);
     addMessage("bot", `Error: ${error.message}`);
   } finally {
     chatSend.disabled = false;
