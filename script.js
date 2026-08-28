@@ -352,19 +352,50 @@ function initChatbot() {
 
   if (!chatToggle || !chatContainer) return;
 
-  // Evento de apertura/cierre del botón principal
-  chatToggle.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  function alternarChat(e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     chatContainer.classList.toggle("chat-hidden");
 
     if (!chatContainer.classList.contains("chat-hidden")) {
-      if (chatInput) chatInput.focus();
+      setTimeout(() => {
+        if (chatInput) chatInput.focus();
+      }, 100);
+      
       if (chatMessages && chatMessages.children.length === 0) {
         addMessage("bot", "¡Hola! 👋 Soy el Asistente de Jugos de Elbia. ¿Qué te apetece hoy? ¿Algo energizante, dulce, digestivo o un sándwich?");
       }
     }
-  });
+  }
+
+  chatToggle.onclick = alternarChat;
+
+  if (chatClose) {
+    chatClose.onclick = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      chatContainer.classList.add("chat-hidden");
+    };
+  }
+
+  if (chatSend) {
+    chatSend.onclick = (e) => {
+      e.preventDefault();
+      sendMessage();
+    };
+  }
+
+  if (chatInput) {
+    chatInput.onkeypress = (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        sendMessage();
+      }
+    };
+  }
+}
 
   // Evento del botón de cerrar (X)
   if (chatClose) {
@@ -386,7 +417,7 @@ function initChatbot() {
       if (e.key === "Enter") sendMessage();
     });
   }
-}
+
 
 async function sendMessage() {
   const chatInput = document.getElementById("chat-input");
